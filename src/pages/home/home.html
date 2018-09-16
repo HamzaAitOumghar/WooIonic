@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
   <ion-card>
     <ion-slides autoplay="1000" pager >
       <ion-slide *ngFor="let number of [1,2,3,4]">
@@ -15,6 +15,45 @@
       </ion-slide>
     </ion-slides>
   </ion-card>
+
+  <img style="margin-top: 10px;" src="../../assets/imgs/banner2.jpg" >
+    <ion-grid>
+        <ion-row>
+            <ion-slides *ngIf="products && products.length"autoplay="1000">
+                <ion-slide *ngFor="let prod of products">
+                    <ion-card no-padding>
+                        <img [src]="prod.images[0].src"/>
+                        <h1 padding center>{{prod.name}}</h1>
+                        <p padding center [innerHTML]="prod.short_description"></p>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list>
+        <ion-item *ngFor="let prod of moreProducts" text-wrap>
+              <ion-thumbnail item-left>
+                  <img [src]="prod.images[0].src"/>
+              </ion-thumbnail>
+              <h2>{{prod.name}}</h2>
+              <p>
+                <span [innerHTML]="prod.short_description.substr(0,50)+'...' "></span>
+                <span [innerHTML]="prod.price_html"></span>
+
+              </p>
+              <button ion-button icon clear item-right>
+                  <ion-icon name="arrow-forward"></ion-icon>
+              </button>
+
+        </ion-item>
+        
+          <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+
+          </ion-infinite-scroll>
+
+    </ion-list>
 
 
 </ion-content>
