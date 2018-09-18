@@ -8,6 +8,10 @@
 
 
 <ion-content>
+  <ion-fab right top edge (click)="openCart()">
+        <button ion-fab color="danger"><ion-icon name="cart"></ion-icon> </button>
+  </ion-fab>
+
   <ion-card>
     <ion-slides pager autoplay="1000" >
       <ion-slide *ngFor="let image of product.images">
@@ -22,7 +26,7 @@
       </ion-chip>
 
       <p [innerHTML]="product.description"></p>
-      <button ion-button icon-left block outline color="danger">
+      <button ion-button icon-left block outline color="danger" (click)="addCartProduct(product)">
         <ion-icon name="basket">Add to Cart</ion-icon>
       </button>
 
