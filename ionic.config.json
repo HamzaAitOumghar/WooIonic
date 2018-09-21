@@ -5,7 +5,8 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://localhost/wordpress/wc-api/v3"
+      "proxyUrl": "http://localhost/wordpress/wc-api/v2"
     }
-  ]
+  ],
+  "pro_id": "d125fe47"
 }
