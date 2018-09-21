@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import * as WC from 'woocommerce-api';
-import { CustomersProvider } from '../../providers/customers/customers';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class SignUpPage {
   billing_shipping_same: any;
   WooCommerce;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toast: ToastController,private customersService:CustomersProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toast: ToastController) {
     this.WooCommerce = WC({
       url: "http://localhost/wordpress",
       consumerKey: "ck_856a139df3131d377fdb4dac1c11c23e44c771b3",
