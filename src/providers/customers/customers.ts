@@ -16,12 +16,8 @@ export class CustomersProvider {
   }
 
   public addNewCustmer(custmer) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Authorization":"Basic " + btoa('ck_856a139df3131d377fdb4dac1c11c23e44c771b3' + ':' + 'cs_85ce234c3245036db5c6dfddb029d3008b5fc9be')
-      })
-    };
-      return this.http.post(this._URL,custmer,httpOptions);
+   
+      return this.http.post(this._URL,custmer);
   }
 
 }
