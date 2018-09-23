@@ -1,6 +1,8 @@
 {
   "name": "WooIonic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular",
   "proxies": [
     {

@@ -21,7 +21,9 @@ export class CartPage {
     this.storage.ready().then(
       ()=>{
         this.storage.get("cart").then((data)=>{
+         if(data!=null){
           this.cartItems=data;
+         }
           console.log(this.cartItems);
          
           if(this.cartItems.length>0){

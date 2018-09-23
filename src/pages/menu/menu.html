@@ -7,18 +7,50 @@
 
   <ion-content class="card-background-page">
     <ion-card>
-        <img src="../../assets/imgs/rock.png" />
-        <div class="card-title">WOOIONIC</div>
-        <div class="card-subtitle">Keep Shopping</div>
-        
+      <img src="../../assets/imgs/rock.png" />
+      <div class="card-title">WOOIONIC</div>
+      <div class="card-subtitle">Keep Shopping</div>
+
     </ion-card>
 
     <ion-list>
-        <ion-item *ngFor="let c of categories" text-wrap (click)="openCategory(c)" menuClose>
-            <ion-icon name="{{c.icon}}" item-left large></ion-icon>
-            <h2>{{c.name}}</h2>
-            <p>{{c.description}}</p>
-        </ion-item>
+      <ion-item *ngFor="let c of categories" text-wrap (click)="openCategory(c)" menuClose>
+        <ion-icon name="{{c.icon}}" item-left large></ion-icon>
+        <h2>{{c.name}}</h2>
+        <p>{{c.description}}</p>
+      </ion-item>
+
+      <ion-item-divider color="danger">Account</ion-item-divider>
+
+      <ion-item (click)="openPage('signup')" menuClose *ngIf="!loggedIn">
+        <ion-icon name="md-clipboard" item-left large></ion-icon>
+        <h2>Sign Up</h2>
+        <p>For a new Account </p>
+      </ion-item>
+      <ion-item (click)="openPage('login')" menuClose *ngIf="!loggedIn">
+        <ion-icon name="log-in" item-left large></ion-icon>
+        <h2>Login</h2>
+        <p>using email and password</p>
+      </ion-item>
+
+      <ion-item *ngIf="loggedIn">
+        <ion-icon name="contact" item-left large></ion-icon>
+        <h2>{{this.user?.firstname== '' ? this.user?.username:this.user?.firstname|| "" }}</h2>
+        <p>Welcome</p>
+      </ion-item>
+
+      <ion-item (click)="openPage('cart')" menuClose *ngIf="loggedIn">
+        <ion-icon name="cart" item-left large></ion-icon>
+        <h2>Your Cart</h2>
+        <p>Check item in yout cart</p>
+      </ion-item>
+
+      <ion-item (click)="openPage('logout')" menuClose *ngIf="loggedIn">
+        <ion-icon name="log-out" item-left large></ion-icon>
+        <h2>Logout</h2>
+        <p>of your Account</p>
+      </ion-item>
+
     </ion-list>
   </ion-content>
 

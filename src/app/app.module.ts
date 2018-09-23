@@ -15,6 +15,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { CartPage } from '../pages/cart/cart';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPage } from '../pages/login/login';
+import { HTTP } from '@ionic-native/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductByCategoryPage,
     ProductDetailsPage,
     CartPage,
-    SignUpPage
+    SignUpPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -40,12 +44,14 @@ import { HttpClientModule } from '@angular/common/http';
     ProductByCategoryPage,
     ProductDetailsPage,
     CartPage,
-    SignUpPage
+    SignUpPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HTTP
   ]
 })
 export class AppModule {}
