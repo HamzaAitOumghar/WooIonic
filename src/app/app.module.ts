@@ -17,6 +17,10 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPage } from '../pages/login/login';
 import { HTTP } from '@ionic-native/http';
+import { CheckoutPage } from '../pages/checkout/checkout';
+
+import { FormsModule } from '@angular/forms';
+import {  PayPal} from '@ionic-native/paypal';
 
 
 @NgModule({
@@ -28,13 +32,14 @@ import { HTTP } from '@ionic-native/http';
     ProductDetailsPage,
     CartPage,
     SignUpPage,
-    LoginPage
+    LoginPage,CheckoutPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,13 +50,14 @@ import { HTTP } from '@ionic-native/http';
     ProductDetailsPage,
     CartPage,
     SignUpPage,
-    LoginPage
+    LoginPage,CheckoutPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HTTP
+    HTTP,
+    PayPal
   ]
 })
 export class AppModule {}
